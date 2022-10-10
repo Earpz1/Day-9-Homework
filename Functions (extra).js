@@ -26,7 +26,6 @@ function checkArray(numbers) {
     }
   }
 }
-checkArray(giveMeRandom(4))
 
 /* EXTRA 2
  In your eCommerce you have an array of objects called shoppingCart. Each one of these objects has a price, a name, an id and the quantity to be shipped.
@@ -35,7 +34,7 @@ checkArray(giveMeRandom(4))
 
 let shoppingCart = [
   {
-    price: 25,
+    price: 100,
     name: 'Coat',
     id: 5734,
     quantity: 1,
@@ -47,7 +46,7 @@ let shoppingCart = [
     quantity: 2,
   },
   {
-    price: 10,
+    price: 15,
     name: 'Gloves',
     id: 8777,
     quantity: 2,
@@ -67,26 +66,79 @@ function shoppingCartTotal(x) {
  Create a function called "addToShoppingCart" which receives a new object, adds it to shoppingCart and returns the total number of items in the shoppingCart.
 */
 
+function addToShoppingCart(add) {
+  shoppingCart.push(add)
+  return console.log(
+    'You now have ' + shoppingCart.length + ' items in your basket.',
+  )
+}
+
+let newItem = {
+  price: 20,
+  name: 'Shoes',
+  id: 6833,
+  quantity: 2,
+}
+
 /* EXTRA 4
  In your eCommerce you have an array of objects called shoppingCart. Each one of these objects has a price, a name, an id and the quantity to be shipped.
  Create a function called "maxShoppingCart" which receives the shoppingCart array and returns the most expensive item in it.
 */
 
-/* WRITE YOUR ANSWER HERE */
+function maxShoppingCart(mostExpensive) {
+  let ItemIndex = 0
+
+  for (let i = 1; i < mostExpensive.length; i++) {
+    if (mostExpensive[ItemIndex].price < mostExpensive[i].price) {
+      ItemIndex = i
+    }
+  }
+  console.log(
+    'The most expensive item in your basket is ' +
+      mostExpensive[ItemIndex].name +
+      ' which costs $' +
+      mostExpensive[ItemIndex].price,
+  )
+}
 
 /* EXTRA 5
  In your eCommerce you have an array of objects called shoppingCart. Each one of these objects has a price, a name, an id and the quantity to be shipped.
  Create a function called "latestShoppingCart" which receives the shoppingCart array and returns the last item.
 */
 
-/* WRITE YOUR ANSWER HERE */
+function latestShoppingCart(array) {
+  lastItem = array.length - 1
+  console.log(
+    'The last item in your shopping basket was: ' +
+      JSON.stringify(array[lastItem]),
+  )
+}
 
 /* EXTRA 6
  Create a function called "loopUntil" which receives an integer x between 0 and 9 as a parameter.
  The function loops and prints a random number between 0 and 9 until the random number is bigger than x for three times in a row.
 */
 
-/* WRITE YOUR ANSWER HERE */
+function loopUntil(x) {
+  let counter = 0
+  let attempts = 0
+
+  while (counter < 4) {
+    if (counter === 3) {
+      console.log('Beat the System in ' + attempts)
+      break
+    }
+
+    let randomNumber = Math.floor(Math.random() * 10)
+
+    if (randomNumber > x) {
+      counter++
+      attempts++
+    } else {
+      counter = 0
+    }
+  }
+}
 
 /* EXTRA 7
  Write a function called "average" which receives an array and returns the average numerical value. The function automatically skips non-numeric entries in the array.
